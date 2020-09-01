@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.colorLabel {
+  padding: 6px 6px 0px 6px;
+}
+
+.colorOption {
+  height: 60px;
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+}
+
+.colorBlob {
+
+  padding: 12px;
+}
