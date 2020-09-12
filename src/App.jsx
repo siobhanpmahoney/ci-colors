@@ -38,26 +38,6 @@ function App() {
 
         <Redirect to="/feed" />
       </Switch>
-
-
-
-      <div id="colorList">
-
-        {colors.map((color) => {
-          return (
-            <div>
-              <h1>DEPLOY WORKED</h1>
-              <div className="colorOption" id={color.id} key={color.id} >
-                <span className="colorLabel"> {color.name}</span>
-                <span className="colorBlob" style={{backgroundColor:`${color.color}`}} onClick={() => updateFavorites(color.color.slice(1), color)}> </span>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-
-
-
     </div>
   );
 }
