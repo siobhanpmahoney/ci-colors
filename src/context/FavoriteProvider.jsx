@@ -5,7 +5,7 @@ export const FavoriteContext = React.createContext({})
 
 const FavoriteProvider = ({children}) => {
 
-  const [favoritePosts, setFavoritePosts] = React.useState(!ls.get("favorites") ? ls.get("favorites") : {})
+  const [favoritePosts, setFavoritePosts] = React.useState(!ls.get("favorites") ? {} : ls.get("favorites"))
 
   useEffect(() => {
     ls.set("favorites", favoritePosts)

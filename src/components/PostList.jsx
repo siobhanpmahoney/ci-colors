@@ -1,10 +1,10 @@
 import React from 'react'
 
-const FeedContainer = (props) => {
+const PostList = (props) => {
   return (
     <div className="feed-container-wrapper">
     </div>
   )
 }
 
-export default FeedContainer
+export default PostList

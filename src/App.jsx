@@ -6,7 +6,6 @@ import { fetchAllColors } from './service'
 function App() {
   const {updateFavorites} = useContext(FavoriteContext);
 
-
   const [colors, setColors] = useState([])
 
   useEffect(() => {
@@ -15,8 +14,6 @@ function App() {
         .then(response => setColors(response.data))
 
   }, [])
-
-
 
 
   return (
