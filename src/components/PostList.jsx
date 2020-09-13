@@ -64,7 +64,8 @@ const PostList = (props) => {
 
 
   return (
-    <div className="feed-container-wrapper">
+    <div className='post-container'>
+    <div className='post-list'>
       {posts.length < 1 ? fillerMessage() : (
         <div>
           {posts.map((post) => {
@@ -76,6 +77,7 @@ const PostList = (props) => {
       }
 
     </div>
+  </div>
   )
 }
 

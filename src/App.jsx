@@ -23,7 +23,7 @@ function App() {
   return (
 
     <div className = 'App'>
-      <div className = 'App'>
+
         <Switch>
           <Route exact path="/" render={(routerProps) => {
               return <Home history={routerProps.history} />;
@@ -47,7 +47,7 @@ function App() {
 
 
 
-          </div>
+
         );
       }
 

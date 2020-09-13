@@ -103,7 +103,11 @@ i.fav-icon {
   padding: 8px;
 }
 
-.post-item-wrapper:hover .fav-icon {
+/* .post-item-wrapper:hover .fav-icon {
+  display: inline-flex;
+} */
+
+.post-item-wrapper .fav-icon {
   display: inline-flex;
 }
 

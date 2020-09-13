@@ -11,7 +11,7 @@ const PostItem = (props) => {
 
   useEffect(() => {
     checkFavoriteState()
-  }, [favoriteState])
+  }, [favoriteState, favoritePosts])
 
   const checkFavoriteState = () => {
     return favoritePosts && favoritePosts.length > 0 && !!favoritePosts.find((p) => p.id == props.post.id)
@@ -47,7 +47,7 @@ const PostItem = (props) => {
       if (props.location.pathname == "/feed") {
         return "fas fa-heart favorited fav-icon";
       } else {
-        return "far fa-trash-alt delete-favorite fav-icon";
+        return "fas fa-trash delete-favorite fav-icon";
       }
     } else {
       return "fas fa-heart nonfavorite fav-icon";
