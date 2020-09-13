@@ -22,9 +22,7 @@ const PostItem = (props) => {
     return !!favoritePosts.find((p) => p.id == props.post.id)
   }
 
-
   const updateFavoriteState = () => {
-    console.log(props.post.id, !!favoritePosts.find((p) => p.id == props.post.id))
     setFavoriteStatus(!!favoritePosts.find((p) => p.id == props.post.id))
   }
 
@@ -48,8 +46,17 @@ const PostItem = (props) => {
   };
 
   const dynamicIcon = () => {
+    let iconClassName = ""
 
-    const iconClassName = !!favoriteStatus ? "fas fa-heart favorited fav-icon" : "fas fa-heart nonfavorite fav-icon"
+    if (!!favoriteStatus) {
+      if (props.location.pathname == "/feed") {
+        iconClassName = "fas fa-heart favorited fav-icon";
+      } else {
+        iconClassName = "far fa-trash-alt delete-favorite fav-icon";
+      }
+    } else {
+      iconClassName = "fas fa-heart nonfavorite fav-icon";
+    }
 
     return <i className={iconClassName} id={props.post.id} onClick={() => updateFavorites(props.post.id, props.post)} />
     // );
@@ -58,7 +65,6 @@ const PostItem = (props) => {
   // helper function for rendering correct icon
   const selectIcon = () => {
     if (!favoriteStatus) {
-      console.log(props.post.id, "favoriteStatus", favoriteStatus, "!favoriteStatus", !favoriteStatus, "!!favoriteStatus", !!favoriteStatus)
       return "fas fa-heart nonfavorite fav-icon";
     } else {
       if (props.location.pathname == "/feed") {
