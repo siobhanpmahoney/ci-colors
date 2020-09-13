@@ -17,7 +17,9 @@ const PostList = (props) => {
 
   useEffect(() => {
     console.log(posts)
-  }, [favoritePosts, posts])
+  }, [favoritePosts])
+
+
 
 
 

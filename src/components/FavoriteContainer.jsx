@@ -19,11 +19,11 @@ const FavoriteContainer = (props) => {
   // const [posts, setPosts] = useState(favoritePosts)
 
   useEffect(() => {
-    setPosts(favoritePosts)
-  }, [location, favoritePosts, posts])
+    generatePostList()
+  }, [location, favoritePosts])
 
   const generatePostList = () => {
-    return ls.get("favorites")
+     setPosts(favoritePosts)
   }
 
   return (
