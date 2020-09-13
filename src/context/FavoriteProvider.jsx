@@ -8,7 +8,7 @@ const FavoriteProvider = ({children}) => {
   const [favoritePosts, setFavoritePosts] = React.useState(!ls.get("favorites") ? [] : ls.get("favorites"))
 
   useEffect(() => {
-    ls.set("favorites", favoritePosts)
+    console.log("favorites in context", favoritePosts)
   }, [favoritePosts])
 
   const updateFavorites = (postId, post) => {
@@ -16,12 +16,19 @@ const FavoriteProvider = ({children}) => {
     let index = favoritePosts.findIndex((p) => p.id == postId)
     if (index != -1) {
       // if already a fave, remove from faves
-      return setFavoritePosts([...favoritePosts.slice(0, index), ...favoritePosts.slice(index+1)])
+       setFavoritePosts([...favoritePosts.slice(0, index), ...favoritePosts.slice(index+1)])
     } else {
       // if not currently a fave, add to fave
-      return setFavoritePosts([...favoritePosts, post])
+       setFavoritePosts([...favoritePosts, post])
     }
+    ls.set("favorites", favoritePosts)
   }
+
+  const updateLocalStorage = () => {
+     ls.set("favorites", favoritePosts)
+  }
+
+
 
   const favoriteState = {
     favoritePosts,

@@ -13,11 +13,19 @@ const PostList = (props) => {
 
   const {favoritePosts, setFavoritePosts} = useContext(FavoriteContext);
   const [posts, setPosts] = useState(props.posts)
+  const [location, setLocation] = useState(props.location.pathname)
+
 
 
   useEffect(() => {
-    console.log(posts)
-  }, [favoritePosts])
+    mapPostComponents()
+  }, [favoritePosts, posts, location])
+
+  const mapPostComponents = () => {
+    return !!props.posts && props.posts.map((post) => {
+      return <PostItem post={post} key={post.id} />
+    })
+  }
 
 
 
@@ -26,11 +34,7 @@ const PostList = (props) => {
 
   return (
     <div className='post-list'>
-
-      {posts && posts.map((post) => {
-        return <PostItem post={post} key={post.id} />
-      })}
-
+      {mapPostComponents()}
     </div>
   )
 

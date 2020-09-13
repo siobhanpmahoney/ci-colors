@@ -12,7 +12,7 @@ import LoadingMessage from './LoadingMessage'
 const FavoriteContainer = (props) => {
 
 
-  const {favoritePosts, setFavoritePosts} = useContext(FavoriteContext);
+  const {favoritePosts, setFavoritePosts, updateFavoritePosts} = useContext(FavoriteContext);
   const [location, setLocation] = useState(props.location.pathname)
   const [posts, setPosts] = useState(favoritePosts)
 
@@ -20,16 +20,21 @@ const FavoriteContainer = (props) => {
 
   useEffect(() => {
     generatePostList()
-  }, [location, favoritePosts])
+    renderPostList()
+  }, [favoritePosts, location])
 
   const generatePostList = () => {
      setPosts(favoritePosts)
   }
 
+  const renderPostList = () => {
+    return <PostList posts={favoritePosts} />
+  }
+
   return (
     <div className='post-container'>
 
-      {posts.length > 0 ? <PostList posts={posts} /> : <NoFavoritesMessage /> }
+      {posts.length > 0 ? renderPostList() : <NoFavoritesMessage /> }
 
   </div>
   )
