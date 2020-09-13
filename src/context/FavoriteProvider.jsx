@@ -5,19 +5,21 @@ export const FavoriteContext = React.createContext({})
 
 const FavoriteProvider = ({children}) => {
 
-  const [favoritePosts, setFavoritePosts] = React.useState(!ls.get("favorites") ? {} : ls.get("favorites"))
+  const [favoritePosts, setFavoritePosts] = React.useState(!ls.get("favorites") ? [] : ls.get("favorites"))
 
   useEffect(() => {
     ls.set("favorites", favoritePosts)
   }, [favoritePosts])
 
   const updateFavorites = (postId, post) => {
-    if (!!favoritePosts[postId]) {
-      let copy = Object.assign({}, favoritePosts)
-      delete copy[postId]
-      setFavoritePosts(copy)
+    // check if item is a favorite
+    let index = favoritePosts.findIndex((p) => p.id == postId)
+    if (index != -1) {
+      // if already a fave, remove from faves
+      setFavoritePosts([...favoritePosts.slice(0, index), ...favoritePosts.slice(index+1)])
     } else {
-      setFavoritePosts(Object.assign({}, favoritePosts, {[postId]: post}))
+      // if not currently a fave, add to fave
+      setFavoritePosts([...favoritePosts, post])
     }
   }
 

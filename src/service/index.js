@@ -5,6 +5,7 @@ export const fetchFeed = () => {
     fetch("https://www.reddit.com/r/modernarchitecture/.json")
       .then((response) => response.json())
       .then((json) =>
+      
         resolve(
           json.data.children.map((post) => {
             return {
