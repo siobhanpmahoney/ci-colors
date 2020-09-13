@@ -5,6 +5,9 @@ import { Switch, Route, Redirect } from "react-router";
 import {FavoriteContext} from './context/FavoriteProvider'
 import { fetchAllColors } from './service'
 import Home from "./components/Home"
+import FeedContainer from "./components/FeedContainer"
+import FavoriteContainer from "./components/FavoriteContainer"
+
 import PostList from "./components/PostList"
 
 function App() {
@@ -30,11 +33,11 @@ function App() {
             }} />
 
           <Route exact path="/feed" render={(routerProps) => {
-              return <PostList history={routerProps.history} />
+              return <FeedContainer history={routerProps.history} />
           }} />
 
           <Route exact path="/favorites" render={(routerProps) => {
-              return <PostList history={routerProps.history} />;
+              return <FavoriteContainer history={routerProps.history} />;
           }} />
 
           <Redirect to="/feed" />

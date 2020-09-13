@@ -16,10 +16,10 @@ const FavoriteProvider = ({children}) => {
     let index = favoritePosts.findIndex((p) => p.id == postId)
     if (index != -1) {
       // if already a fave, remove from faves
-      setFavoritePosts([...favoritePosts.slice(0, index), ...favoritePosts.slice(index+1)])
+      return setFavoritePosts([...favoritePosts.slice(0, index), ...favoritePosts.slice(index+1)])
     } else {
       // if not currently a fave, add to fave
-      setFavoritePosts([...favoritePosts, post])
+      return setFavoritePosts([...favoritePosts, post])
     }
   }
 

@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { withRouter } from "react-router";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import {FavoriteContext} from '../context/FavoriteProvider'
 import {generateTimestamp} from "../service"
 
