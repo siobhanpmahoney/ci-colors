@@ -3,6 +3,10 @@ import { withRouter } from 'react-router';
 import ls from 'local-storage';
 // import {fetchFeed} from '../service'
 import {FavoriteContext} from '../context/FavoriteProvider'
+import PostItem from './PostItem'
+import NoFavoritesMessage from './NoFavoritesMessage'
+import LoadingMessage from './LoadingMessage'
+
 
 
 const PostList = (props) => {
@@ -15,7 +19,7 @@ const PostList = (props) => {
 
   useEffect(() => {
     generatePostList()
-  }, [location, posts])
+  }, [location, favoritePosts])
 
   const generatePostList = () => {
     location == "/feed" ? fetchFeed() : ls.get("favorites")
@@ -23,7 +27,7 @@ const PostList = (props) => {
 
   const fetchFeed = () => {
      new Promise((resolve, reject) => {
-      fetch("https://www.reddit.com/r/analog/.json")
+      fetch("https://www.reddit.com/r/architecture/.json")
         .then((response) => response.json())
         .then((json) =>
 
@@ -47,23 +51,30 @@ const PostList = (props) => {
     });
   };
 
+  const fillerMessage = () => {
+    return location == "/feed" ? (
+       <LoadingMessage />
+    ) : (
+       <NoFavoritesMessage />
+    )
+  }
+
+
 
 
 
   return (
     <div className="feed-container-wrapper">
-      {location == "/feed" ? (
-        posts.length > 0 ? (
-          <div>{posts.map((post) => {
-              return <div>{post.id}</div>
-            })}</div>
-        ) : (
-          <div>loading...</div>
-        )
+      {posts.length < 1 ? fillerMessage() : (
+        <div>
+          {posts.map((post) => {
+            return <PostItem post={post} key={post.id} />
+          })}
+        </div>
+      )
 
-      ) : (
-        <div> <h1> FAVES </h1></div>
-      )}
+      }
+
     </div>
   )
 }
