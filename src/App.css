@@ -4,23 +4,27 @@ body {
   margin: 0px !important;
 }
 
+
 .App {
   height: 100%;
   position: relative;
 }
 
-li.nav__list-item--active,
-.nonfavorite,
-.delete-favorite {
+
+
+li.nav__list-item--active, .nonfavorite, .delete-favorite {
   color: white;
 }
 
+
 .img-element {
-  display: inline-flex;
+  display:  inline-flex;
 }
 
+
+
 .post-container {
-  display: flex;
+  display:flex;
   position: relative;
   display: flex;
   flex: 1 1 auto;
@@ -50,10 +54,12 @@ li.nav__list-item--active,
   flex: 1 1 auto;
   flex-flow: row nowrap;
   background: none;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   position: relative;
-  display: flex;
+  display:flex;
+
 }
+
 
 .post-item-content {
   width: 100%;
@@ -63,14 +69,16 @@ li.nav__list-item--active,
   display: flex;
 }
 
+
 .post-item-image {
   width: 500px;
   background-color: black;
   z-index: 1;
-  flex-flow: column wrap;
+  flex-flow:column wrap;
   height: 350px;
   position: relative;
-  display: flex;
+  display:flex;
+
 }
 
 .img-element {
@@ -91,8 +99,7 @@ i {
   position: absolute;
   z-index: 100;
   display: inline-flex;
-  display: none;
-  /* justify-content: flex-start; */
+  display: none
 }
 
 i.fav-icon {
@@ -103,12 +110,9 @@ i.fav-icon {
   padding: 8px;
 }
 
-/* .post-item-wrapper:hover .fav-icon {
-  display: inline-flex;
-} */
+.post-item-wrapper:hover .fav-icon {
+  display:inline-flex;
 
-.post-item-wrapper .fav-icon {
-  display: inline-flex;
 }
 
 i.favorited {
@@ -116,21 +120,21 @@ i.favorited {
   animation-direction: normal;
   animation-duration: 1s;
   animation-iteration-count: 1;
-  animation-fill-mode: both;
+  animation-fill-mode: both;;
 }
 
 @keyframes favorited {
-  from {
-    left: 0%;
-    width: content;
-  }
-  to {
-    left: 460px;
-    width: content;
-  }
+  from  {left: 0%; width: content;}
+  to {left: 460px; width: content;}
 }
 
+
+
+
+
+
 i.favorited {
+
   color: #f35750;
   justify-content: flex-end;
   align-content: flex-end;
@@ -138,11 +142,13 @@ i.favorited {
   display: inline-flex;
 }
 
+
 .post-item-text: {
   text-align: center;
 }
 
 .post-item-title {
+
   padding: 16px 0px;
   margin: 16px 0px;
   text-align: center;
@@ -169,7 +175,8 @@ ul.nav__list {
   padding-inline-start: 0px !important;
   border-bottom: lightgrey 1px solid;
   display: flex;
-  justify-content: stretch;
+  justify-content: stretch
+
 }
 
 li {
@@ -178,13 +185,10 @@ li {
   length: 80px;
 }
 
-li.nav__list-item--active a.nav__list-item__link:visited,
-li.nav__list-item,
-li.nav__list-item--active,
-.post-item-metadata {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica",
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+li.nav__list-item--active a.nav__list-item__link:visited, li.nav__list-item, li.nav__list-item--active, .post-item-metadata {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Helvetica","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
+
 
 li.nav__list-item {
   background-color: white;
@@ -201,6 +205,7 @@ li.nav__list-item--active a.nav__list-item__link:visited {
   color: white !important;
   font-size: 16px;
   width: 60px;
+
 }
 
 a {
@@ -220,15 +225,17 @@ li.nav__list-item a.nav__list-item__link:visited {
   color: #57a2e4 !important;
 }
 
-.nonfavorite,
-.delete-favorite {
+
+.nonfavorite, .delete-favorite  {
   align-self: flex-start;
 }
 
-.fas .fa-user,
-.post-item-metadata {
+.fas .fa-user, .post-item-metadata {
   color: #999;
 }
+
+
+
 
 .post-item-metadata {
   justify-content: center;
@@ -240,9 +247,10 @@ li.nav__list-item a.nav__list-item__link:visited {
   display: flex;
 }
 
-.metadata-icon {
+.metadata-icon, {
   padding: 0px 0px 0px 16px;
   position: relative;
+
 }
 
 .post-item-time {
@@ -250,7 +258,7 @@ li.nav__list-item a.nav__list-item__link:visited {
   margin: 0px 6px;
 }
 
-.post-item-metadata-detail {
+.post-item-metadata-detail  {
   padding: 0px 10px;
   margin: 0px 10px;
   display: inline;

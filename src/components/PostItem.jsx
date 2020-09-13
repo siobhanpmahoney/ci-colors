@@ -8,15 +8,26 @@ import {generateTimestamp} from "../service"
 
 const PostItem = (props) => {
   const {favoritePosts, setFavoritePosts, updateFavorites} = useContext(FavoriteContext);
+  const [location, setLocation] = useState(props.location.pathname)
 
-  const {favoriteState, setFavoriteState} = useState(props.post.isFavorite)
+  const [favoriteStatus, setFavoriteStatus] = useState(!!favoritePosts.find((p) => p.id == props.post.id) || false)
+
 
   useEffect(() => {
-    checkFavoriteState()
-  }, [favoriteState, favoritePosts])
+    if (!!favoriteStatus) {
+      checkFavStatus()
+
+    }
+  }, [favoritePosts, location, favoriteStatus])
+
+  const checkFavStatus = () => {
+    return !!favoritePosts.find((p) => p.id == props.post.id)
+  }
+
 
   const checkFavoriteState = () => {
-    return favoritePosts && favoritePosts.length > 0 && !!favoritePosts.find((p) => p.id == props.post.id)
+    console.log(props.post.id, !!favoritePosts.find((p) => p.id == props.post.id))
+    !!favoriteStatus && setFavoriteStatus(checkFavStatus())
   }
 
   // helper method for rendering the timestamp posted as the difference between current time and time of post
@@ -39,20 +50,24 @@ const PostItem = (props) => {
   };
 
   const dynamicIcon = () => {
-    return <i className={selectIcon()} id={props.post.id} onClick={() => updateFavorites(props.post.id, props.post)} />
+
+    const iconClassName = !!favoriteStatus ? "fas fa-heart favorited fav-icon" : "fas fa-heart nonfavorite fav-icon"
+
+    return <i className={iconClassName} id={props.post.id} onClick={() => updateFavorites(props.post.id, props.post)} />
     // );
   };
 
   // helper function for rendering correct icon
   const selectIcon = () => {
-    if (!!favoriteState) {
+    if (!favoriteStatus) {
+      console.log(props.post.id, "favoriteStatus", favoriteStatus, "!favoriteStatus", !favoriteStatus, "!!favoriteStatus", !!favoriteStatus)
+      return "fas fa-heart nonfavorite fav-icon";
+    } else {
       if (props.location.pathname == "/feed") {
         return "fas fa-heart favorited fav-icon";
       } else {
-        return "fas fa-trash delete-favorite fav-icon";
+        return "far fa-trash-alt delete-favorite fav-icon";
       }
-    } else {
-      return "fas fa-heart nonfavorite fav-icon";
     }
   };
 
