@@ -14,20 +14,18 @@ const PostItem = (props) => {
 
 
   useEffect(() => {
-    if (!!favoriteStatus) {
-      checkFavStatus()
-
-    }
-  }, [favoritePosts, location, favoriteStatus])
+    updateFavoriteState()
+    // dynamicIcon()
+  }, [favoritePosts])
 
   const checkFavStatus = () => {
     return !!favoritePosts.find((p) => p.id == props.post.id)
   }
 
 
-  const checkFavoriteState = () => {
+  const updateFavoriteState = () => {
     console.log(props.post.id, !!favoritePosts.find((p) => p.id == props.post.id))
-    !!favoriteStatus && setFavoriteStatus(checkFavStatus())
+    setFavoriteStatus(!!favoritePosts.find((p) => p.id == props.post.id))
   }
 
   // helper method for rendering the timestamp posted as the difference between current time and time of post
