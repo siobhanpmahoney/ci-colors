@@ -8,7 +8,7 @@ const FavoriteProvider = ({children}) => {
   const [favoritePosts, setFavoritePosts] = React.useState(!ls.get("favorites") ? [] : ls.get("favorites"))
 
   useEffect(() => {
-    console.log("favorites in context", favoritePosts)
+    ls.set("favorites", favoritePosts)
   }, [favoritePosts])
 
   const updateFavorites = (postId, post) => {
@@ -21,7 +21,7 @@ const FavoriteProvider = ({children}) => {
       // if not currently a fave, add to fave
        setFavoritePosts([...favoritePosts, post])
     }
-    ls.set("favorites", favoritePosts)
+
   }
 
   const updateLocalStorage = () => {
