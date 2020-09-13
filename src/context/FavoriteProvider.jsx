@@ -29,7 +29,7 @@ const FavoriteProvider = ({children}) => {
   }
 
   return (
-    <FavoriteContext.Provider value={{favoritePosts, updateFavorites}}>
+    <FavoriteContext.Provider value={{favoritePosts, setFavoritePosts, updateFavorites}}>
       {children}
     </FavoriteContext.Provider>
   )

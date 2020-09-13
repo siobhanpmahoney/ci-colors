@@ -5,7 +5,7 @@ export const fetchFeed = () => {
     fetch("https://www.reddit.com/r/modernarchitecture/.json")
       .then((response) => response.json())
       .then((json) =>
-      
+
         resolve(
           json.data.children.map((post) => {
             return {
@@ -24,4 +24,21 @@ export const fetchFeed = () => {
         )
       );
   });
+};
+
+export const generateTimestamp = (postTimestamp) => {
+  let elapsed =
+    new Date().getTime() - new Date(postTimestamp * 1000).getTime();
+
+  switch (true) {
+    case elapsed < 60000:
+      return "Just Now";
+    case elapsed >= 60000 && elapsed < 3600000:
+      return `${parseInt(elapsed / 60000)} minutes ago`;
+    case elapsed >= 3600000 && elapsed < 86400000:
+      return `${parseInt(elapsed / 3600000)} hours ago`;
+    case elapsed >= 86400000:
+      return `${parseInt(elapsed / 86400000)} days ago`;
+      break;
+  }
 };
