@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router";
 
 import {FavoriteContext} from './context/FavoriteProvider'
 import { fetchAllColors } from './service'
+import NavBar from './components/Nav/NavBar'
 import Home from "./components/Home"
 import FeedContainer from "./components/FeedContainer"
 import FavoriteContainer from "./components/FavoriteContainer"
@@ -26,6 +27,8 @@ function App() {
   return (
 
     <div className = 'App'>
+
+      <NavBar />
 
         <Switch>
           <Route exact path="/" render={(routerProps) => {

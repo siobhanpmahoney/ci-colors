@@ -2,7 +2,7 @@
 
 export const fetchFeed = () => {
   return new Promise((resolve, reject) => {
-    fetch("https://www.reddit.com/r/modernarchitecture/.json")
+    fetch("https://www.reddit.com/r/AccidentalWesAnderson/.json")
       .then((response) => response.json())
       .then((json) =>
 

@@ -28,7 +28,7 @@ const FeedContainer = (props) => {
 
   const fetchFeed = () => {
      new Promise((resolve, reject) => {
-      fetch("https://www.reddit.com/r/architecture/.json")
+      fetch("https://www.reddit.com/r/AccidentalWesAnderson/.json")
         .then((response) => response.json())
         .then((json) =>
 
